@@ -1,0 +1,155 @@
+<div class="page">
+    <div class="page__container">
+
+
+        <div class="header">
+            <div class="header__container">
+
+                <div class="header__info-conatiner row">
+                    <div class="col-md-1  col-sm-1 col-lg-1"></div>
+                    <div class="header__info col-md-10 col-sm-10 col-lg-10">
+                        <div class="header__info-left">
+                            <img class="logo" src="../../../assets/logo.png" alt="img" />
+                        </div>
+                        <div class="header__info-right">
+                            <span>Best list of all countries with their flags</span>
+                            <span>on the whole internet !!!</span>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-1 col-lg-1"></div>
+                </div>
+
+                <div class="row header__container-search">
+                    <div class="col-md-1  col-sm-1 col-lg-1"></div>
+                    <div class="col-md-10  col-sm-10 col-lg-10">
+                        <div class="d-flex search-box ">
+                            <input type="text" class="form-control" placeholder="search" [(ngModel)]="search"
+                                (keyup)="_doDetectSearch()">
+                            <button type="button" *ngIf="isShowSearchbtn" class="search-btn"
+                                (click)="_doSearch()">SEARCH</button>
+                        </div>
+                    </div>
+                    <div class="col-md-1  col-sm-1 col-lg-1"></div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="body">
+            <div class="row">
+                <div class="col-md-1  col-sm-1 col-lg-1"></div>
+                <div class="col-md-10  col-sm-10 col-lg-10">
+                    <div class="list">
+                        <div class="no-data" *ngIf="DisplayedCountries.length == 0 && !isLoading ">No Data Available
+                        </div>
+                        <div class="no-data" *ngIf="DisplayedCountries.length == 0 && isLoading">Please Wait data is
+                            Loading....</div>
+                        <div class="card-box" *ngFor="let country of DisplayedCountries"
+                            (click)="_doOpenModal(country)">
+                            <img class="card-image" src={{country.flags.png}} alt="country image" />
+                            <div class="card-box-info">
+                                <span>{{country.name.common}}</span>
+                                <span style="color: #9E9E9E;">{{country.continents[0]}}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="my-3 modal-header">
+                        <div class="col-md-9">
+                            <button type="button" class="btn btn-secondary" *ngIf="currentPage!=0"
+                                (click)="previousPage()">Pevious</button>
+                        </div>
+                        <div class="col-md-1 d-flex justify-content-end ">
+                            <button type="button" class="btn btn-secondary"
+                                *ngIf="Countries.length != lastIndex && DisplayedCountries.length>=25"
+                                (click)="nextPage()">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1  col-sm-1 col-lg-1"></div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="footer">
+            <div class="header__info-conatiner row">
+                <div class="col-md-1  col-sm-1 col-lg-1"></div>
+                <div class="header__info col-md-10 col-sm-10 col-lg-10">
+                    <div class="header__info-left">
+                        <img class="logo" src="../../../assets/logo.png" alt="img" />
+                    </div>
+                    <div class="header__info-right">
+                        <span><input type="text" class="form-control" placeholder="Enter Email" /></span>
+                        <span><button type="button" class="scb-btn">Subscribe</button></span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-sm-1 col-lg-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1  col-sm-1 col-lg-1"></div>
+                <div class="col-md-10 col-sm-10 col-lg-10">
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="white" >Worldpedia Inc</span>
+                    <span class="white" >{{currentYear}} |All rights reserved</span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-sm-1 col-lg-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" *ngIf="countryInfo">
+            <div class="modal-header">
+                <h5 class="modal-title">{{countryInfo.name.common}}</h5>
+                <span aria-hidden="true" class="closeicon" (click)="_doCloseModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img class="modal-image" src={{countryInfo.flags.png}} alt="country image" />
+                <div class="modal-info">
+                    <div class="modal-info__field d-flex">
+                        <h5>Capital</h5>
+                        <span *ngIf="!countryInfo.capital">NA</span>
+                        <span *ngIf="countryInfo.capital">{{countryInfo.capital}}</span>
+                    </div>
+                    <div class="modal-info__field d-flex">
+                        <h5>Continent</h5>
+                        <span>{{countryInfo.continents}}</span>
+                    </div>
+                    <div class="modal-info__field d-flex">
+                        <h5>Currency</h5>
+                        <span *ngIf="!countryCurrency">NA</span>
+                        <span *ngIf="countryCurrency">{{countryCurrency[0].value.name}}</span>
+                    </div>
+                    <div class="modal-info__field d-flex">
+                        <h5>Languages</h5>
+                        <span *ngIf="!countryLanguages">NA</span>
+                        <span *ngIf="countryLanguages">{{countryLanguages}}</span>
+                    </div>
+                    <div class="modal-info__field d-flex">
+                        <h5>Population</h5>
+                        <span>{{countryInfo.population}}</span>
+                    </div>
+                    <div class="modal-info__field d-flex">
+                        <h5>TimeZone</h5>
+                        <span>{{countryInfo.timezones}}</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

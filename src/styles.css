@@ -1,0 +1,236 @@
+/* You can add global styles to this file, and also import other style files */
+.header__container {
+    position: fixed;
+    width: 100%;
+    background: #154c79;
+}
+.footer
+{
+    width: 100%;
+    background: #000;
+}
+
+.header__container-search {
+    position: absolute;
+    bottom: -36px;
+    width: 100%;
+}
+
+.body {
+    padding-top: 230px;
+}
+
+
+
+.search-box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.scb-btn{
+    border: none;
+    background: #154c79;
+    margin-left: 15px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 5px 10px; 
+    margin-top:10px
+}
+
+.search-btn {
+    border: none;
+    background: #154c79;
+    margin-left: 15px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 0px 10px;
+}
+
+.header__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0px 70px 0px;
+    font-size: 14px;
+}
+
+
+
+.row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.header__info-right {
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    color: #fff;
+}
+
+.logo {
+    height: 35px;
+}
+
+@media (max-width:359px) {
+    .body {
+        padding-top: 300px !important;
+    }
+
+    .header__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        padding: 70px 0px 100px 0px;
+        font-size: 12px;
+    }
+
+    .header__info-right {
+        display: flex;
+        align-items: center !important;
+        flex-direction: column !important;
+        color: #fff;
+    }
+
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-box {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 10px !important;
+    margin-bottom: 20px !important;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width :480px) {
+    .card-box {
+        width: 100%;
+        margin-right: 0px !important;
+    }
+
+    .card-image {
+        height: 150px;
+        width: 100%;
+    }
+}
+
+.end {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.no-data {
+    color: red;
+    font-size: 20px;
+}
+
+/* Extra Small Devices, Phones */
+@media screen and (min-width : 480px) and (max-width :768px) {
+    .card-box {
+        width: calc((100% - 10px) / 2);
+    }
+
+    .card-box:nth-child(2n) {
+        margin-right: 0px !important;
+    }
+
+    .card-image {
+        height: 150px;
+        width: 100%;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width :992px) {
+    .card-box {
+        width: calc((100% - 20px) / 3);
+    }
+
+    .card-box:nth-child(3n) {
+        margin-right: 0px !important;
+    }
+
+    .card-image {
+        height: 100px;
+        width: 100%;
+    }
+
+}
+
+/* Medium Devices, Desktops */
+@media screen and (min-width : 992px) {
+    .card-box {
+        width: calc((100% - 40px) / 5);
+    }
+
+    .card-box:nth-child(5n) {
+        margin-right: 0px !important;
+    }
+
+    .card-image {
+        height: 100px;
+        width: 100%;
+    }
+}
+.white{
+    color:#fff
+}
+
+.card-box-info {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.modal {
+    top:10% !important; 
+}
+
+.modal-header {
+    padding: 5px 20px !important;
+    border-bottom: none !important;
+}
+
+.closeicon {
+    margin-top: -5px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.modal-image
+{
+    width:50%;
+    height:125px;
+    margin-bottom: 20px;
+}
+.modal-info__field {
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.modal-info__field h5 {
+    width: 30%;
+    word-wrap: break-word;
+    font-size: 15px;
+}
+
+.modal-info__field span {
+    width: 70%;
+    word-wrap: break-word;
+    font-size: 15px;
+}
